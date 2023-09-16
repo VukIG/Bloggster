@@ -1,18 +1,17 @@
 import Article from './Article';
 function Articles() {
   return (
-    <div className='grid grid-cols-4 grid-rows-2 place-items-center gap-10'>
-        <Article />
-        <Article />
-        <Article />
-        <Article />
-        <Article />
-        <Article />
-        <Article />
-        <Article />
-
+    <div className="grid col-span-9 grid-cols-4 place-items-center gap-5">
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
     </div>
-  )
+  );
 }
 
-export default Articles
+export default Articles;

@@ -1,22 +1,19 @@
 import SignIn from './SignIn';
 import UserInfo from './UserInfo.jsx';
-import Logo from '../public/memoriesText.png'
-import Oko from '../public/oko.png'
+import Logo from '../public/memoriesText.png';
+import Oko from '../public/oko.png';
 function Header() {
-    let isLoggedIn = false;
+  let isLoggedIn = false;
   return (
-    <div className="flex border-[2px] p-7 shadow-xl rounded-full 
-    align-middle items-center justify-between mb-5 bg-white">
-        <div className="flex justify-start gap-3 h-12">
-            <img src={Logo} alt="" />
-            <img src={Oko} alt="" />
-        </div>
-        {
-            isLoggedIn ? (
-                <UserInfo />
-            ):
-            <SignIn />
-        }
+    <div
+      className="flex border-[2px] p-7 shadow-xl rounded-full 
+    align-middle items-center justify-between mb-5 bg-white"
+    >
+      <div className="flex justify-start gap-3 h-12">
+        <img src={Logo} alt="" />
+        <img src={Oko} alt="" />
+      </div>
+      {isLoggedIn ? <UserInfo /> : <SignIn />}
     </div>
   );
 }
