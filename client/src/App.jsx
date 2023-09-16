@@ -1,5 +1,6 @@
+import Header from './Header';
 function App() {
-  return <div>Hello, World!</div>;
+  return <Header></Header>;
 }
 
 export default App;
