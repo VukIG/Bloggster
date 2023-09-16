@@ -1,7 +1,7 @@
 
 function SignIn() {
   return (
-    <div className='text-m cursor-pointer bg-pink-800 text-white rounded p-3'>Sign In</div>
+    <button className="btn btn-active btn-primary btn-lg">Sign in</button>
   )
 }
 
