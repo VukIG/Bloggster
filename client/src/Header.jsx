@@ -6,7 +6,7 @@ function Header() {
     let isLoggedIn = false;
   return (
     <div className="flex border-[2px] p-7 shadow-xl rounded-full 
-    m-2 align-middle items-center justify-between">
+    align-middle items-center justify-between mb-5 bg-white">
         <div className="flex justify-start gap-3 h-12">
             <img src={Logo} alt="" />
             <img src={Oko} alt="" />
