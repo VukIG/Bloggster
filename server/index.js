@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import postRoutes from './routes/posts.js';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -25,6 +25,9 @@ mongoose
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port: ${PORT}`);
+    });
+    app.get('/', (req, res) => {
+      res.send('we on "/"');
     });
   })
   .catch((err) => console.error(err));
