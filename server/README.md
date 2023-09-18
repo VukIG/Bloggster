@@ -4,7 +4,7 @@
 #### Get all posts
 
 ```http
-  GET /posts?page={pageNumber}
+  GET /posts?page=${pageNumber}
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
