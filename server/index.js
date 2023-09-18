@@ -1,16 +1,33 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import postRoutes from './routes/posts.js';
+import dotenv from 'dotenv';
 
-const PORT = process.env.PORT || 5050;
+dotenv.config();
+
+// constants
+const CONNECTION_URL = process.env.CONNECTION_URL;
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 
+// middleware
+app.use(express.json({ limit: '30mb', extended: true }));
+app.use(express.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
-app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Server is up!');
-});
+app.use('/posts', postRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
-});
+// database
+mongoose
+  .connect(CONNECTION_URL)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port: ${PORT}`);
+    });
+    app.get('/', (req, res) => {
+      res.send('we on "/"');
+    });
+  })
+  .catch((err) => console.error(err));
