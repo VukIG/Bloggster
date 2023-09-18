@@ -1,3 +1,4 @@
+import { query } from 'express';
 import Post from '../models/postSchema.js';
 
 export const getPosts = async (req, res) => {
@@ -30,6 +31,19 @@ export const getPost = async (req, res) => {
   try {
     const post = await Post.findById(id);
     res.status(200).json(post);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const getPostsBySearch = async (req, res) => {
+  const { searchQuery, tags } = req.query;
+
+  try {
+    const posts = await Post.find({
+      $or: [{ name: searchQuery }, { tags: tags }],
+    });
+    res.json(posts);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
