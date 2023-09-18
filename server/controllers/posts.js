@@ -1,4 +1,3 @@
-import { query } from 'express';
 import Post from '../models/postSchema.js';
 
 export const getPosts = async (req, res) => {
