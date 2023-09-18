@@ -1,22 +1,14 @@
 
-
-# Server API
-
-
-
-## Note
-
-Ubaciti `.env` file pre koriscenja!\
-Template za `.env` je `envtemp`
-
-
 ## Reference
 
 #### Get all posts
 
 ```http
-  GET /posts/
+  GET /posts?page={pageNumber}
 ```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `pageNumber` | `number` | Fetches 8 posts per page |
 
 #### Get post
 
