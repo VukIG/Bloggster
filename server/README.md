@@ -23,10 +23,19 @@
 #### Search by Title and Tags
 
 ```http
-  GET /posts/search?searchQuery=${searchString}&tags={$searchTags}
+  GET /posts/search?searchQuery=${searchString}&tags=${searchTags}
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `searchString`      | `string` | Name of the post to look for |
 | `searchTags`      | `string` | Tags of the post to look for |
+
+#### Get posts by creator
+
+```http
+  GET /creator?creator=${creatorName}
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `pageNumber` | `number` | Fetches 8 posts per page |

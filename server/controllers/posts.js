@@ -14,7 +14,7 @@ export const getPosts = async (req, res) => {
       .limit(LIMIT)
       .skip(startIndex);
 
-    res.json({
+    res.status(200).json({
       data: posts,
       currentPage: Number(page),
       numberOfPages: Math.ceil(total / LIMIT),
@@ -43,7 +43,18 @@ export const getPostsBySearch = async (req, res) => {
     const posts = await Post.find({
       $or: [{ title: title }, { tags: tags }],
     });
-    res.json(posts);
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const getPostsByCreator = async (req, res) => {
+  const { creator } = req.query;
+
+  try {
+    const posts = await Post.find({ creator: creator });
+    res.status(200).json(posts);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
