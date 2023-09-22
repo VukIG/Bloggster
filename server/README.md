@@ -34,8 +34,14 @@
 #### Get posts by creator
 
 ```http
-  GET /creator?creator=${creatorName}
+  GET /posts/creator?creator=${creatorName}
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `pageNumber` | `number` | Fetches 8 posts per page |
+
+#### Create a post
+
+```http
+  POST /posts/createPost
+```
