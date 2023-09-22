@@ -61,7 +61,6 @@ export const getPostsByCreator = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
-  console.log("WE HERE!");
   const {
     title,
     message,
