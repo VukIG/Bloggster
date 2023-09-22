@@ -59,3 +59,33 @@ export const getPostsByCreator = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+export const createPost = async (req, res) => {
+  console.log("WE HERE!");
+  const {
+    title,
+    message,
+    creator,
+    tags,
+    selectedFile,
+    likes,
+    comments,
+    createdAt,
+  } = req.body;
+
+  try {
+    const post = new Post({
+      title: title,
+      message: message,
+      creator: creator,
+      tags: tags,
+      selectedFile: selectedFile,
+      likes: likes,
+      comments: comments,
+      createdAt: createdAt,
+    }).save();
+    res.status(201).json({ post });
+  } catch (err) {
+    res.status(409).json({ message: err.message });
+  }
+};
