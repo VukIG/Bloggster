@@ -1,4 +1,4 @@
-import Dubrovnik from '../public/dubrovnik.jpg';
+import Dubrovnik from '../images/dubrovnik.jpg'
 function Article() {
   return (
     <div className="card w-63 glass">
