@@ -1,16 +1,18 @@
-import { Router, Outlet, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage/HomePage';
-import SignUnPage from './HomePage/SignIn';
+import SignInPage from './SignIn&SignUp /SignInPage';
+import SignUpPage from './SignIn&SignUp /SignUpPage'
 import ArticleInfo from './ArticleInfo/ArticleInfo';
 function App() {
   return (
-    <Router>
-      <Outlet>
-        <Route exact path="/" render={() => <HomePage />} />
-        <Route exact path="/articleInfo" render={() => <ArticleInfo />} />
-        <Route exact path="/signup" render={() => <SignUnPage />} />
-      </Outlet>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route exact path="/articleInfo" element={<ArticleInfo />} />
+        <Route exact path="/signin" element={<SignInPage />} />
+        <Route exact path="/signup" element={<SignUpPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
