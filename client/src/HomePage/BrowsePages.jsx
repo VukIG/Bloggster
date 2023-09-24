@@ -1,21 +1,43 @@
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { fetchData } from '../app/actions';
+import { useState } from 'react';
 
 function BrowsePages() {
+  const [pageNumbers,setPageNumbers]=useState([1,2,3]);
+  const dispatch = useDispatch();
+  function changePage(number) {
+    dispatch(fetchData(number));
+  }
+  function goLeft() {
+    if (pageNumbers[1]!=1) {
+      let newPageNumbers=pageNumbers.map((number) => number-1);
+      setPageNumbers(newPageNumbers);
+    }
+    else
+      return;
+  }
+  function goRight() {
+    const updatedPageNumbers = pageNumbers.map((number) => number + 1);
+    setPageNumbers(updatedPageNumbers);
+  }
   return (
     <div
       className="bg-white p-3 flex align-middle items-center 
     justify-between w-full 
     shadow-xl rounded-2xl "
     >
-      <button class="btn btn-outline">
+      <button className="btn btn-outline" onClick={goLeft}>
         <FaAngleLeft />
       </button>
       <div className="flex align-middle gap-3 items-center">
-        <button class="btn btn-outline rounded-full px-5">1</button>
-        <button class="btn btn-outline rounded-full px-5">2</button>
-        <button class="btn btn-outline rounded-full px-5">3</button>
+        {pageNumbers.map((number) => 
+           (<button className="btn btn-outline rounded-full px-5" key={number} onClick={changePage(number)}>
+            {number.toString}()
+          </button>)
+        )}
       </div>
-      <button class="btn btn-outline">
+      <button className="btn btn-outline" onClick={goRight}>
         <FaAngleRight />
       </button>
     </div>
