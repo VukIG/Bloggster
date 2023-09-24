@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 function SignIn() {
   return (
-    <Link to='/signin'>
+    <Link to="/signin">
       <button className="btn btn-active btn-primary btn-lg">Sign in</button>
     </Link>
   );
