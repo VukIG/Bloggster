@@ -1,5 +1,4 @@
 import Articles from './Articles';
-import Loader from './Loader';
 import Aside from './Aside';
 function Main() {
   return (
@@ -8,7 +7,6 @@ function Main() {
         <Articles />
         <Aside />
       </div>
-      <Loader />
     </>
   );
 }
