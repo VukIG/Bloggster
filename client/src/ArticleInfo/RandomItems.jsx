@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function RandomItems() {
-  return (
-    <div>RandomItems</div>
-  )
+  return <div>RandomItems</div>;
 }
 
-export default RandomItems
+export default RandomItems;

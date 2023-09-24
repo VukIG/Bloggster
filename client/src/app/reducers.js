@@ -3,9 +3,10 @@ import React from 'react'
 const initialState = {
     userLoggedIn: false,
     articleItems: [],
-    user = {
+    user : {
         name:'',
         email:'',
+        password:'',
     }
 }
 

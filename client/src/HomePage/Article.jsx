@@ -1,8 +1,8 @@
-import Dubrovnik from '../images/dubrovnik.jpg'
+import Dubrovnik from '../images/dubrovnik.jpg';
 import { Link } from 'react-router-dom';
 function Article() {
   return (
-    <Link to='/articleInfo' className="card w-63 glass">
+    <Link to="/articleInfo" className="card w-63 glass">
       <div className="card w-63 bg-base-100">
         <figure>
           <img src={Dubrovnik} />
