@@ -9,14 +9,14 @@ function MainArticleInfo() {
           <p>#croatia</p>
           <p>#europe</p>
         </div>
-          <p className='max-w-lg'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-            ipsam, ut nemo corporis dolorum labore, harum voluptatum perferendis
-            aliquid enim quis praesentium sed magni ipsum iure quam laboriosam.
-            Ullam, maiores.
-          </p>
+        <p className="max-w-lg">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+          ipsam, ut nemo corporis dolorum labore, harum voluptatum perferendis
+          aliquid enim quis praesentium sed magni ipsum iure quam laboriosam.
+          Ullam, maiores.
+        </p>
         <div>
-          <h1 className='py-2'>Created by: JavaScript Mastery</h1>
+          <h1 className="py-2">Created by: JavaScript Mastery</h1>
           <p>6 hours ago</p>
         </div>
       </div>

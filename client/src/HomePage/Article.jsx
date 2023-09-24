@@ -1,6 +1,6 @@
 import Dubrovnik from '../images/dubrovnik.jpg';
 import { Link } from 'react-router-dom';
-function Article({item}) {
+function Article({ item }) {
   return (
     <Link to="/articleInfo" className="card w-63 glass">
       <div className="card w-63 bg-base-100">

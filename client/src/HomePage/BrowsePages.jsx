@@ -4,18 +4,16 @@ import { fetchData } from '../app/actions';
 import { useState } from 'react';
 
 function BrowsePages() {
-  const [pageNumbers,setPageNumbers]=useState([1,2,3]);
+  const [pageNumbers, setPageNumbers] = useState([1, 2, 3]);
   const dispatch = useDispatch();
   function changePage(number) {
     dispatch(fetchData(number));
   }
   function goLeft() {
-    if (pageNumbers[1]!=1) {
-      let newPageNumbers=pageNumbers.map((number) => number-1);
+    if (pageNumbers[1] != 1) {
+      let newPageNumbers = pageNumbers.map((number) => number - 1);
       setPageNumbers(newPageNumbers);
-    }
-    else
-      return;
+    } else return;
   }
   function goRight() {
     const updatedPageNumbers = pageNumbers.map((number) => number + 1);
@@ -31,11 +29,15 @@ function BrowsePages() {
         <FaAngleLeft />
       </button>
       <div className="flex align-middle gap-3 items-center">
-        {pageNumbers.map((number) => 
-           (<button className="btn btn-outline rounded-full px-5" key={number} onClick={changePage(number)}>
-            {number.toString}()
-          </button>)
-        )}
+        {pageNumbers.map((number) => (
+          <button
+            className="btn btn-outline rounded-full px-5"
+            key={number}
+            onClick={(number) => changePage(number.toString())}
+          >
+            {number}
+          </button>
+        ))}
       </div>
       <button className="btn btn-outline" onClick={goRight}>
         <FaAngleRight />
