@@ -15,7 +15,6 @@ export const cardDataReducer = (state = initialState, action) => {
         error: null,
       };
     case 'FETCH_DATA_SUCCESS':
-      console.log(action.payload.data)
       return {
         ...state,
         loading: false,

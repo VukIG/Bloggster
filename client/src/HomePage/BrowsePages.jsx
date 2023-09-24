@@ -1,24 +1,30 @@
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { fetchData } from '../app/actions';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function BrowsePages() {
-  const [pageNumbers, setPageNumbers] = useState([1, 2, 3]);
+function BrowsePages({ pageNumber, setPageNumber }) {
   const dispatch = useDispatch();
-  function changePage(number) {
-    dispatch(fetchData(number));
-  }
-  function goLeft() {
-    if (pageNumbers[1] != 1) {
-      let newPageNumbers = pageNumbers.map((number) => number - 1);
-      setPageNumbers(newPageNumbers);
-    } else return;
-  }
-  function goRight() {
-    const updatedPageNumbers = pageNumbers.map((number) => number + 1);
-    setPageNumbers(updatedPageNumbers);
-  }
+  const pageNumbers = [-1, 0, 1]; // indexses
+
+  const goLeft = () => {
+    if (pageNumber == 1) return;
+    fetchData(pageNumber - 1)(dispatch);
+    setPageNumber((prev) => prev - 1);
+  };
+  const goRight = () => {
+    fetchData(pageNumber + 1)(dispatch);
+    setPageNumber((prev) => prev + 1);
+  };
+  const changePage = (num) => {
+    fetchData(num)(dispatch);
+    setPageNumber(num);
+  };
+  useEffect(() => {
+    console.log(pageNumber);
+  });
+
+  console.log('outside effect: ', pageNumber);
   return (
     <div
       className="bg-white p-3 flex align-middle items-center 
@@ -29,15 +35,24 @@ function BrowsePages() {
         <FaAngleLeft />
       </button>
       <div className="flex align-middle gap-3 items-center">
-        {pageNumbers.map((number) => (
-          <button
-            className="btn btn-outline rounded-full px-5"
-            key={number}
-            onClick={(number) => changePage(number.toString())}
-          >
-            {number}
-          </button>
-        ))}
+        {pageNumbers.map((number) =>
+          pageNumber + number == 0 ? (
+            <React.Fragment key={number}></React.Fragment>
+          ) : (
+            <button
+              className={
+                number == 0
+                  ? 'btn btn-primary btn-outline rounded-full px-5'
+                  : 'btn btn-outline rounded-full px-5'
+              }
+              key={number + pageNumber}
+              value={number}
+              onClick={() => changePage(pageNumber + number)}
+            >
+              {pageNumber + number}
+            </button>
+          )
+        )}
       </div>
       <button className="btn btn-outline" onClick={goRight}>
         <FaAngleRight />

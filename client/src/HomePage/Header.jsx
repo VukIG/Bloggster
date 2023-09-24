@@ -7,7 +7,7 @@ function Header() {
   return (
     <div
       className="flex border-[2px] p-7 shadow-xl rounded-full 
-    align-middle items-center justify-between mb-5 bg-white"
+    align-middle items-center justify-between mb-5 bg-white px-14"
     >
       <div className="flex justify-start gap-3 h-12">
         <img src={Logo} alt="" />

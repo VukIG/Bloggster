@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import postRoutes from './routes/posts.js';
 import dotenv from 'dotenv';
+import Post from './models/postSchema.js'
 
 dotenv.config();
 
@@ -29,5 +30,12 @@ mongoose
     app.get('/', (req, res) => {
       res.send('we on "/"');
     });
+
+    // const post = new Post({
+    //   title: 'test55555',
+    //   creator: 'jodiGangEnyoer',
+    //   message: 'we love casting spells'
+    // })
+    // post.save();
   })
   .catch((err) => console.error(err));
