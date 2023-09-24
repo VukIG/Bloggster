@@ -1,10 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-
+import reducers from './reducers';
 export default configureStore({
-  reducer: {
-    user: userReducer,
-    post: postReducer,
-    browse: browseReducer,
-
-  },
+  reducer: reducers
 });

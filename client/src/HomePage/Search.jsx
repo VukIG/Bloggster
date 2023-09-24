@@ -15,7 +15,7 @@ function Search() {
           placeholder="Search tags"
           className="input input-bordered input-lg px-20 my-1"
         />
-        <button className="btn btn-active btn-primary my-1">Primary</button>
+        <button className="btn btn-active btn-primary my-1">Search</button>
       </form>
     </div>
   );

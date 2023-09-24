@@ -1,7 +1,7 @@
 import SignIn from './SignIn';
 import UserInfo from './UserInfo.jsx';
-import Logo from '../public/memoriesText.png';
-import Oko from '../public/oko.png';
+import Logo from '../images/memoriesText.png';
+import Oko from '../images/oko.png';
 function Header() {
   let isLoggedIn = false;
   return (

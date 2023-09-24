@@ -1,13 +1,18 @@
-import Header from './Header';
-import Section from './Section';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './HomePage/HomePage';
+import SignInPage from './SignIn&SignUp /SignInPage';
+import SignUpPage from './SignIn&SignUp /SignUpPage'
+import ArticleInfo from './ArticleInfo/ArticleInfo';
 function App() {
   return (
-    <div className="bg-gradient-to-b from-blue-300 via-pink-400 to-red-400">
-      <div className="p-5">
-        <Header />
-        <Section />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route exact path="/articleInfo" element={<ArticleInfo />} />
+        <Route exact path="/signin" element={<SignInPage />} />
+        <Route exact path="/signup" element={<SignUpPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
