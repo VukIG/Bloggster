@@ -8,7 +8,7 @@ export const fetchData = (page) => {
           page
       )
       .then((response) => {
-        dispatch({ type: 'FETCH_DATA_SUCCESS', payload: response.data });
+        dispatch({ type: 'FETCH_DATA_SUCCESS', payload: response.data ,page: page});
       })
       .catch((error) => {
         dispatch({ type: 'FETCH_DATA_FAILURE', payload: error.message });

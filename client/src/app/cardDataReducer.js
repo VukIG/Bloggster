@@ -2,7 +2,7 @@
 const initialState = {
   error: null,
   loading: true,
-  currentPage: '1',
+  currentPage: '',
   data: [],
 };
 
@@ -15,9 +15,11 @@ export const cardDataReducer = (state = initialState, action) => {
         error: null,
       };
     case 'FETCH_DATA_SUCCESS':
+      console.log(action.page)
       return {
         ...state,
         loading: false,
+        currentPage: action.page,
         data: action.payload.data,
       };
     case 'FETCH_DATA_FAIL':

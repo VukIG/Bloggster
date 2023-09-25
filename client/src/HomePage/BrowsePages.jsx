@@ -10,14 +10,17 @@ function BrowsePages() {
   console.log(pageNumber)
   const goLeft = () => {
     if (pageNumber == 1) return;
-    fetchData(pageNumber - 1)(dispatch);
+    fetchData(parseInt(pageNumber) - 1)(dispatch);
   };
+  
   const goRight = () => {
-    fetchData(pageNumber + 1)(dispatch);
+    fetchData(parseInt(pageNumber) + 1)(dispatch);
   };
+  
   const changePage = (num) => {
-    fetchData(num)(dispatch);
+    dispatch(fetchData(num));
   };
+  console.log(pageNumber)
   
   console.log('outside effect: ', pageNumber);
   return (
