@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  id: String
+  id: String,
 });
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model('User', userSchema);

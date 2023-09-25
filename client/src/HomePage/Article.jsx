@@ -1,17 +1,35 @@
 import Dubrovnik from '../images/dubrovnik.jpg';
 import { Link } from 'react-router-dom';
-function Article() {
+import { FaRegThumbsUp } from 'react-icons/fa';
+
+function Article({ item }) {
   return (
     <Link to="/articleInfo" className="card w-63 glass">
       <div className="card w-63 bg-base-100">
-        <figure>
+        <figure className="brightness-75">
           <img src={Dubrovnik} />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+        <span className="absolute top-0 left-0 text-white pl-6 pt-4 font-semibold">
+          {item.creator}
+        </span>
+        <div className="card-body p-0">
+          <h1 className="card-title pt-5 px-5 text-gray-800">
+            {item.title.length < 15
+              ? item.title
+              : item.title.slice(0, 20) + '...'}
+          </h1>
+          <p className="h-14 px-5 text-gray-500 break-all">
+            {item.message.length > 40
+              ? item.message.slice(0, 34) + '...'
+              : item.message}
+          </p>
+          <div className="card-actions p-5">
+            <button className="btn btn-primary">
+              <>
+                <FaRegThumbsUp />
+                <span>{item.likes}</span>
+              </>
+            </button>
           </div>
         </div>
       </div>

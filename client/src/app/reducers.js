@@ -1,29 +1,8 @@
-import React from 'react';
+import { combineReducers } from 'redux';
+import { cardDataReducer } from './cardDataReducer';
 
-const initialState = {
-  userLoggedIn: false,
-  articleItems: [],
-  user: {
-    name: '',
-    email: '',
-    password: '',
-  },
-};
+const reducers = combineReducers({
+  cardData: cardDataReducer,
+});
 
-export const reducers = (state = initialState, action) => {
-  switch (action.type) {
-    case 'USER_LOGGED_IN':
-      localStorage.setItem(
-        'user',
-        JSON.stringify({
-          name: action.payload.user.name,
-          email: action.payload.user.email,
-        })
-      );
-      break;
-
-    default:
-      break;
-  }
-  return state;
-};
+export default reducers;

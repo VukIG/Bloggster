@@ -1,14 +1,13 @@
 import Articles from './Articles';
-import Loader from './Loader';
 import Aside from './Aside';
+
 function Main() {
   return (
     <>
-      <div className="grid grid-cols-12 gap-5 align-middle items-center">
+      <div className="px-4 w-full flex justify-center items-center">
         <Articles />
         <Aside />
       </div>
-      <Loader />
     </>
   );
 }

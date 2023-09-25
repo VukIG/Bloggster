@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "react-axios": "^2.0.6"
+  }
+}
