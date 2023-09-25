@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import postRoutes from './routes/posts.js';
 import dotenv from 'dotenv';
-import Post from './models/postSchema.js'
+import Post from './models/postSchema.js';
 
 dotenv.config();
 

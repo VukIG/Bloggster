@@ -15,7 +15,7 @@ export const cardDataReducer = (state = initialState, action) => {
         error: null,
       };
     case 'FETCH_DATA_SUCCESS':
-      console.log(action.page)
+      console.log(action.page);
       return {
         ...state,
         loading: false,

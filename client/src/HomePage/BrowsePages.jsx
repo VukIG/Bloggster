@@ -5,23 +5,23 @@ import React from 'react';
 
 function BrowsePages() {
   const dispatch = useDispatch();
-  const pageNumbers = [ 0, 1, 2]; 
-  let pageNumber=useSelector((state)=>state.cardData.currentPage);
-  console.log(pageNumber)
+  const pageNumbers = [0, 1, 2];
+  let pageNumber = useSelector((state) => state.cardData.currentPage);
+  console.log(pageNumber);
   const goLeft = () => {
     if (pageNumber == 1) return;
     fetchData(parseInt(pageNumber) - 1)(dispatch);
   };
-  
+
   const goRight = () => {
     fetchData(parseInt(pageNumber) + 1)(dispatch);
   };
-  
+
   const changePage = (num) => {
     dispatch(fetchData(num));
   };
-  console.log(pageNumber)
-  
+  console.log(pageNumber);
+
   console.log('outside effect: ', pageNumber);
   return (
     <div
@@ -45,9 +45,11 @@ function BrowsePages() {
               }
               key={number + pageNumber}
               value={number}
-              onClick={() => changePage(parseInt(pageNumber)+parseInt(number))}
+              onClick={() =>
+                changePage(parseInt(pageNumber) + parseInt(number))
+              }
             >
-              {parseInt(pageNumber)+parseInt(number)}
+              {parseInt(pageNumber) + parseInt(number)}
             </button>
           )
         )}
