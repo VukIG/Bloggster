@@ -1,23 +1,26 @@
 import Dubrovnik from '../images/dubrovnik.jpg';
-function MainArticleInfo() {
+import { formatDistanceToNow } from 'date-fns';
+
+function MainArticleInfo({ item }) {
+  console.log(item);
+  let dateString = item.createdAt;
+  let date = new Date(dateString);
+  let formattedDate = formatDistanceToNow(date,{addSuffix : true});
+
   return (
     <div className="flex w-full justify-between">
       <div className="flex flex-col gap-3 w-1/2">
-        <h1 className="text-6xl bold">Dubrovnik</h1>
+        <h1 className="text-6xl bold">{item.name}</h1>
         <div className="flex text-gray-500">
-          <p>#dubrovnik</p>
-          <p>#croatia</p>
-          <p>#europe</p>
+          {Array.isArray(item.tags) &&
+            item.tags.map((tag) => (
+              <p key={tag}>{tag}</p> // Added key prop for each item in the map
+            ))}
         </div>
-        <p className="max-w-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          ipsam, ut nemo corporis dolorum labore, harum voluptatum perferendis
-          aliquid enim quis praesentium sed magni ipsum iure quam laboriosam.
-          Ullam, maiores.
-        </p>
+        <p className="max-w-lg">{item.message}</p>
         <div>
-          <h1 className="py-2">Created by: JavaScript Mastery</h1>
-          <p>6 hours ago</p>
+          <h1 className="py-2">Created by: {item.creator} </h1>
+          <p>{formattedDate}</p>
         </div>
       </div>
       <div className="w-5/12 rounded-3xl overflow-hidden">

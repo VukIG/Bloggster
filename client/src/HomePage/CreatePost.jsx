@@ -20,6 +20,11 @@ function CreatePost() {
           placeholder="Tags"
           className="input input-bordered input-lg px-20 my-1"
         />
+        <input
+          type="file"
+          placeholder="Upload an image"
+          className="my-3"
+        />
         <div className="flex flex-col">
           <button className="btn btn-active btn-primary my-1">Submit</button>
           <button className="btn btn-active btn-primary my-1">Clear</button>

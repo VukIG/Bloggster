@@ -4,7 +4,7 @@ import { FaRegThumbsUp } from 'react-icons/fa';
 
 function Article({ item }) {
   return (
-    <Link to="/articleInfo" className="card w-63 glass">
+    <Link to="/articleInfo" state={item} className="card w-63 glass">
       <div className="card w-63 bg-base-100">
         <figure className="brightness-75">
           <img src={Dubrovnik} />
