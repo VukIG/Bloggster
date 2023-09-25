@@ -14,7 +14,7 @@ function MainArticleInfo({ item }) {
         <div className="flex text-gray-500">
           {Array.isArray(item.tags) &&
             item.tags.map((tag) => (
-              <p key={tag}>{tag}</p> // Added key prop for each item in the map
+              <p key={tag}>{tag}</p> 
             ))}
         </div>
         <p className="max-w-lg">{item.message}</p>

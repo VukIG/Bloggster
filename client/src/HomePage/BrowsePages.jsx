@@ -2,15 +2,12 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../app/actions';
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function BrowsePages() {
   const dispatch = useDispatch();
   const pageNumbers = [0, 1, 2];
-  const searchLoad = useSelector((state)=> state.search.loading);
   let pageNumber = useSelector((state) => state.cardData.currentPage);
-  if (!searchLoad) {
-    pageNumber = '1';  
-  }
   
   console.log(pageNumber);
   const goLeft = () => {
@@ -22,9 +19,16 @@ function BrowsePages() {
     fetchData(parseInt(pageNumber) + 1)(dispatch);
   };
 
-  const changePage = (num) => {
+  const changePage = (pageNumber, number) => {
+    let num;
+    if (isNaN(pageNumber)) {
+      num = parseInt(number) + 1;
+    } else {
+      num = parseInt(pageNumber) + parseInt(number);
+    }
     dispatch(fetchData(num));
   };
+
   
   console.log('outside effect: ', pageNumber);
   return (
@@ -47,13 +51,15 @@ function BrowsePages() {
                   ? 'btn btn-primary btn-outline rounded-full px-5'
                   : 'btn btn-outline rounded-full px-5'
               }
-              key={number + pageNumber}
+              key={uuidv4()}
               value={number}
               onClick={() =>
-                changePage(parseInt(pageNumber) + parseInt(number))
+                changePage(parseInt(pageNumber),parseInt(number))
               }
             >
-              {parseInt(pageNumber) + parseInt(number)}
+              { pageNumber == undefined
+                ? parseInt(number) + 1
+                : parseInt(pageNumber) + parseInt(number)}
             </button>
           )
         )}
