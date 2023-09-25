@@ -1,8 +1,5 @@
 import Article from './Article';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchData } from '../app/actions';
-import { useEffect } from 'react';
-
+import { useSelector } from 'react-redux';
 function Articles() {
   const cardData = useSelector((state) => state.cardData);
 

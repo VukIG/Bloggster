@@ -4,7 +4,7 @@ export const fetchData = (page) => {
     dispatch({ type: 'FETCH_DATA_REQUEST' });
     axios
       .get(
-        'https://fantastic-space-waddle-wq64v7pxvxrc95vw-5000.app.github.dev/posts?page=' +
+        'http://localhost:5000/posts?=' +
           page
       )
       .then((response) => {

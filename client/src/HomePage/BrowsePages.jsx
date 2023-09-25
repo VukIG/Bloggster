@@ -1,29 +1,24 @@
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../app/actions';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-function BrowsePages({ pageNumber, setPageNumber }) {
+function BrowsePages() {
   const dispatch = useDispatch();
-  const pageNumbers = [-1, 0, 1]; // indexses
-
+  const pageNumbers = [ 0, 1, 2]; 
+  let pageNumber=useSelector((state)=>state.cardData.currentPage);
+  console.log(pageNumber)
   const goLeft = () => {
     if (pageNumber == 1) return;
     fetchData(pageNumber - 1)(dispatch);
-    setPageNumber((prev) => prev - 1);
   };
   const goRight = () => {
     fetchData(pageNumber + 1)(dispatch);
-    setPageNumber((prev) => prev + 1);
   };
   const changePage = (num) => {
     fetchData(num)(dispatch);
-    setPageNumber(num);
   };
-  useEffect(() => {
-    console.log(pageNumber);
-  });
-
+  
   console.log('outside effect: ', pageNumber);
   return (
     <div
@@ -47,9 +42,9 @@ function BrowsePages({ pageNumber, setPageNumber }) {
               }
               key={number + pageNumber}
               value={number}
-              onClick={() => changePage(pageNumber + number)}
+              onClick={() => changePage(parseInt(pageNumber)+parseInt(number))}
             >
-              {pageNumber + number}
+              {parseInt(pageNumber)+parseInt(number)}
             </button>
           )
         )}
