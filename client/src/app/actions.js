@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { memo } from 'react';
 export const fetchData = (page) => {
   return (dispatch) => {
     dispatch({ type: 'FETCH_DATA_REQUEST' });
@@ -17,14 +18,14 @@ export const fetchData = (page) => {
   };
 };
 
-export const searchData = (tags,memories) => {
-  return (dispatch) =>{
+export const searchData = (memories,tags) => {
+    return (dispatch) =>{
     dispatch({ type: 'FETCH_DATA_REQUEST' });
     axios
-      .get( 'http://localhost:5000/posts/search?searchQuery=' + memories + '&tags='+ tags)
+      .get('http://localhost:5000/posts/search?searchQuery='+memories+'&tags='+tags)
       .then((response)=>{
         dispatch({
-          type: 'DATA_FOUND',
+          type: 'FETCH_DATA_SUCCESS',
           payload: response.data,
         })
       })

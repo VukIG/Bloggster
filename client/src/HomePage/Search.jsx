@@ -7,8 +7,12 @@ function Search() {
   const tags = useRef(null);
   function search() {
     let currentMemories=memories.current.value;
-    let currentTags=memories.current.value;
-    console.log(currentMemories,currentTags)
+    let currentTags=tags.current.value;
+    if(currentMemories=='' && currentTags==''){
+      return;
+    }
+    console.log(currentMemories);
+    console.log(currentTags)
     dispatch(searchData(currentMemories,currentTags));
   }
   return (

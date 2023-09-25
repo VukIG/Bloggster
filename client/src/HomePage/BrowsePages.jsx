@@ -6,7 +6,12 @@ import React from 'react';
 function BrowsePages() {
   const dispatch = useDispatch();
   const pageNumbers = [0, 1, 2];
+  const searchLoad = useSelector((state)=> state.search.loading);
   let pageNumber = useSelector((state) => state.cardData.currentPage);
+  if (!searchLoad) {
+    pageNumber = '1';  
+  }
+  
   console.log(pageNumber);
   const goLeft = () => {
     if (pageNumber == 1) return;
@@ -20,8 +25,7 @@ function BrowsePages() {
   const changePage = (num) => {
     dispatch(fetchData(num));
   };
-  console.log(pageNumber);
-
+  
   console.log('outside effect: ', pageNumber);
   return (
     <div

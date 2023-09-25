@@ -1,6 +1,6 @@
 const initialState = {
     error:null,
-    loading: true,
+    loading: false,
     found: false,
     itemData: [],
 }
@@ -13,7 +13,7 @@ export const searchReducer = (state = initialState, action) => {
                 loading:true,
                 found:false,
             }
-        case ('DATA_FOUND'):
+        case ('FETCH_DATA_SUCCESS'):
             return{
                 ...state,
                 loading:false,
