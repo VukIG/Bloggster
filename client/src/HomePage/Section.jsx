@@ -3,7 +3,6 @@ import Articles from './Articles';
 import Aside from './Aside';
 
 function Main() {
-
   const [pageNumber, setPageNumber] = useState(1);
 
   return (

@@ -1,6 +1,6 @@
 import Search from './Search';
 import CreatePost from './CreatePost';
-import BrowsePages from './BrowsePages'
+import BrowsePages from './BrowsePages';
 
 function Aside({ pageNumber, setPageNumber }) {
   return (

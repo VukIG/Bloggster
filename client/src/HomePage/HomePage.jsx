@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function HomePage() {
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.cardData.loading);
+  const loading = useSelector((state) => state.cardData.loading);
 
   useEffect(() => {
     fetchData('1')(dispatch);
-  }, [])
+  }, []);
 
   return (
     <div className="bg-gradient-to-b from-blue-300 via-pink-400 to-red-400 px-4 py-6 h-full">
