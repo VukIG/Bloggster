@@ -1,9 +1,9 @@
 import RandomItems from './RandomItems';
 import MainArticleInfo from './MainArticleInfo';
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 function ArticleInfo() {
-  const location = useLocation()
+  const location = useLocation();
   const item = location.state;
   return (
     <div className="bg-gradient-to-b from-blue-300 via-pink-400 to-red-400 w-full h-full p-10">
@@ -12,7 +12,6 @@ function ArticleInfo() {
         <RandomItems />
       </div>
     </div>
-    
   );
 }
 

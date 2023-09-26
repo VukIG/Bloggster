@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function HomePage() {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.cardData.loading);
-  const searchLoad = useSelector((state)=> state.search.loading);
+  const searchLoad = useSelector((state) => state.search.loading);
   useEffect(() => {
     fetchData('1')(dispatch);
   }, [dispatch]);

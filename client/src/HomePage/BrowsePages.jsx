@@ -8,7 +8,7 @@ function BrowsePages() {
   const dispatch = useDispatch();
   const pageNumbers = [0, 1, 2];
   let pageNumber = useSelector((state) => state.cardData.currentPage);
-  
+
   console.log(pageNumber);
   const goLeft = () => {
     if (pageNumber == 1) return;
@@ -29,7 +29,6 @@ function BrowsePages() {
     dispatch(fetchData(num));
   };
 
-  
   console.log('outside effect: ', pageNumber);
   return (
     <div
@@ -53,11 +52,9 @@ function BrowsePages() {
               }
               key={uuidv4()}
               value={number}
-              onClick={() =>
-                changePage(parseInt(pageNumber),parseInt(number))
-              }
+              onClick={() => changePage(parseInt(pageNumber), parseInt(number))}
             >
-              { pageNumber == undefined
+              {pageNumber == undefined
                 ? parseInt(number) + 1
                 : parseInt(pageNumber) + parseInt(number)}
             </button>

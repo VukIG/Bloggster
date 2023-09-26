@@ -13,10 +13,8 @@ function Article({ item }) {
           {item.creator}
         </span>
         <div className="card-body p-0 flex flex-col align-middle items-start">
-          <p className='ml-4 mt-2 text-gray-500'>{item.tags}</p>
+          <p className="ml-4 mt-2 text-gray-500">{item.tags}</p>
           <h1 className="card-title  px-5 text-gray-800">
-            
-
             {item.title.length < 15
               ? item.title
               : item.title.slice(0, 20) + '...'}

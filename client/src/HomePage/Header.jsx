@@ -3,7 +3,7 @@ import UserInfo from './UserInfo.jsx';
 import Logo from '../images/memoriesText.png';
 import Oko from '../images/oko.png';
 function Header() {
-  let isLoggedIn = false;
+  let isLoggedIn = true;
   return (
     <div
       className="flex border-[2px] p-7 shadow-xl rounded-full 

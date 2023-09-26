@@ -1,8 +1,7 @@
-
 function NotFound() {
   return (
-    <div className='text-9xl w-full font-extrabold text-white'>Not Found</div>
-  )
+    <div className="text-9xl w-full font-extrabold text-white">Not Found</div>
+  );
 }
 
-export default NotFound
+export default NotFound;
