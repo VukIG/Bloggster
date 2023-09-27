@@ -7,22 +7,25 @@ function CreatePost() {
   let message = useRef('');
   let tags = useRef([]);
   let image = useRef(undefined);
+  
   function clear() {
-    title.current = null;
-    message.current = null;
-    tags.current = null;
-    image.current = null;
+    title.current.value = '';
+    message.current.value = '';
+    tags.current.value = '';
+    image.current.value = ''; 
   }
+  
   function uploadPost() {
     dispatch(
       uploadCard(
         title.current.value,
         message.current.value,
         tags.current.value,
-        image.current.value
+        image.current.files[0]
       )
     );
   }
+  
 
   return (
     <div>
@@ -32,12 +35,14 @@ function CreatePost() {
           type="text"
           placeholder="Title"
           className="input input-bordered input-lg px-20 my-1"
+          required
         />
         <input
           ref={message}
           type="text"
           placeholder="Message"
           className="input input-bordered input-lg p-20 my-1"
+          required
         />
         <input
           ref={tags}
@@ -50,6 +55,7 @@ function CreatePost() {
           type="file"
           placeholder="Upload an image"
           className="my-3"
+          required
         />
         <div className="flex flex-col">
           <button

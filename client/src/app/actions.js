@@ -50,6 +50,7 @@ export const uploadCard = (title, message, tags, img) => {
         img: img,
       })
       .then((response) => {
+        console.log(response)
         dispatch({
           type: 'FETCH_DATA_SUCCESS',
           payload: response.data,
