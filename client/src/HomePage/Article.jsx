@@ -4,7 +4,7 @@ import { FaRegThumbsUp } from 'react-icons/fa';
 
 function Article({ item }) {
   return (
-    <Link to="/articleInfo" className="card w-63 glass">
+    <Link to="/articleInfo" state={item} className="card w-63 glass">
       <div className="card w-63 bg-base-100">
         <figure className="brightness-75">
           <img src={Dubrovnik} />
@@ -12,8 +12,9 @@ function Article({ item }) {
         <span className="absolute top-0 left-0 text-white pl-6 pt-4 font-semibold">
           {item.creator}
         </span>
-        <div className="card-body p-0">
-          <h1 className="card-title pt-5 px-5 text-gray-800">
+        <div className="card-body p-0 flex flex-col align-middle items-start">
+          <p className="ml-4 mt-2 text-gray-500">{item.tags}</p>
+          <h1 className="card-title  px-5 text-gray-800">
             {item.title.length < 15
               ? item.title
               : item.title.slice(0, 20) + '...'}

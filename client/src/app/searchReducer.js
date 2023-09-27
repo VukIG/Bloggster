@@ -1,26 +1,30 @@
-// reducer.js
 const initialState = {
   error: null,
-  loading: true,
-  currentPage: '',
-  data: [],
+  loading: false,
+  found: false,
+  itemData: [],
 };
 
-export const cardDataReducer = (state = initialState, action) => {
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_DATA_REQUEST':
       return {
         ...state,
         loading: true,
-        error: null,
+        found: false,
       };
     case 'FETCH_DATA_SUCCESS':
-      console.log(action.page);
       return {
         ...state,
         loading: false,
-        currentPage: action.page,
-        data: action.payload.data,
+        found: true,
+        itemData: action.payload,
+      };
+    case 'DATA_NOT_FOUND':
+      return {
+        ...state,
+        loading: false,
+        found: false,
       };
     case 'FETCH_DATA_FAIL':
       return {

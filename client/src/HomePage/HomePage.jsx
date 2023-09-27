@@ -8,14 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 function HomePage() {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.cardData.loading);
-
+  const searchLoad = useSelector((state) => state.search.loading);
   useEffect(() => {
     fetchData('1')(dispatch);
   }, [dispatch]);
 
   return (
     <div className="bg-gradient-to-b from-blue-300 via-pink-400 to-red-400 px-4 py-6 h-full">
-      {loading ? (
+      {loading || searchLoad ? (
         <Loader />
       ) : (
         <>
