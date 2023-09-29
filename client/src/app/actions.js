@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+const URL = 'localhost:5000';
+
 export const fetchData = (page) => {
   return (dispatch) => {
     dispatch({ type: 'FETCH_DATA_REQUEST' });
     axios
-      .get('http://localhost:5000/posts?=' + page)
+      .get(URL + '/posts?page=' + encodeURI(page))
       .then((response) => {
         dispatch({
           type: 'FETCH_DATA_SUCCESS',
@@ -23,10 +25,10 @@ export const searchData = (memories, tags) => {
     dispatch({ type: 'FETCH_DATA_REQUEST' });
     axios
       .get(
-        'http://localhost:5000/posts/search?searchQuery=' +
-          memories +
+          URL + '/posts/search?searchQuery=' +
+          encodeURIComponent(memories) +
           '&tags=' +
-          tags
+          encodeURIComponent(tags)
       )
       .then((response) => {
         dispatch({
@@ -43,7 +45,7 @@ export const searchData = (memories, tags) => {
 export const uploadCard = (title, message, tags, img) => {
   return (dispatch) => {
     axios
-      .post('http://localhost:5000/createPost', {
+      .post(URL + '/posts/createPost', {
         title: title,
         message: message,
         tags: tags,
