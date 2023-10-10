@@ -37,6 +37,8 @@ export const getPost = async (req, res) => {
 
 export const getPostsBySearch = async (req, res) => {
   let { searchQuery, tags } = req.query;
+  searchQuery = decodeURIComponent(searchQuery);
+  tags = decodeURIComponent(tags);
 
   searchQuery = searchQuery == undefined ? '' : searchQuery;
   tags = tags == undefined ? '' : tags;
@@ -53,7 +55,8 @@ export const getPostsBySearch = async (req, res) => {
 };
 
 export const getPostsByCreator = async (req, res) => {
-  const { creator } = req.query;
+  let { creator } = req.query;
+  creator = decodeURIComponent(creator);
 
   try {
     const posts = await Post.find({ creator: creator });

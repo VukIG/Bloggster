@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js';
 import dotenv from 'dotenv';
-import Post from './models/postSchema.js';
+// import Post from './models/postSchema.js';
 
 dotenv.config();
 
